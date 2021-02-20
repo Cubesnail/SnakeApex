@@ -1,15 +1,15 @@
 /// @description Insert description here
-// You can write your code in this editor
+//TODO: Change to globals
 keyRight = keyboard_check(vk_right) || keyboard_check(ord("D"))
 keyLeft = keyboard_check(vk_left) || keyboard_check(ord("A"))
 keyDown = keyboard_check(vk_down) || keyboard_check(ord("S"))
 keyUp = keyboard_check(vk_up) || keyboard_check(ord("W"))
 keyRun = keyboard_check(vk_shift)
 keySpace = keyboard_check_pressed(vk_space)
-walkSpd = 2
+walkSpd = 0.8
 vSpd = 0
 gravitySpd = 1
-runSpd = 3
+runSpd = 1.2
 jumpSpd = 5
 jumpHeight = 20
 doubleJumpHeight = 30
@@ -20,18 +20,22 @@ if keyRight {
 		
 		if keyRun {
 			x = x + runSpd
+			image_index = image_index + runSpd
 		} else {
 			x = x + walkSpd
 			walking = true
+			image_index = image_index + walkSpd
 		}
 	}
 } else if keyLeft {
 	if (tilemap_get_at_pixel(collisionTilemapID, bbox_left - runSpd, bbox_bottom) = 0){
 		if keyRun {
 			x = x - runSpd
+			image_index = image_index - runSpd
 		} else {
 			x = x - walkSpd
 			walking = true
+			image_index = image_index - walkSpd
 		}
 	} else if falling {
 		//wall cling and slide
@@ -69,7 +73,7 @@ if (tilemap_get_at_pixel(collisionTilemapID, bbox_left, bbox_bottom + 1) = 0) &&
 
 //Aerial Wall Movement
 if wallCling && keyDown {
-	y = y + 0.5
+	y = y + 1
 }
 
 wallCling = false
