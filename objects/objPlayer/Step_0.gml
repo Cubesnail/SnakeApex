@@ -7,73 +7,85 @@ keyUp = keyboard_check(vk_up) || keyboard_check(ord("W"))
 keyRun = keyboard_check(vk_shift)
 keySpace = keyboard_check_pressed(vk_space)
 walkSpd = 0.8
-vSpd = 0
-gravitySpd = 1
+hSpd = 0
+
+
+terminalVSpd = 1
+glideSpd = 0.025
 runSpd = 1.2
 jumpSpd = 5
 jumpHeight = 20
 doubleJumpHeight = 30
-	
+jumpLagSpd = 2
+
 //Horizontal Movement
+
+if keyRun {
+	walkSpd = walkSpd * runSpd
+}
+
 if keyRight {
-	if (tilemap_get_at_pixel(collisionTilemapID, bbox_right + runSpd, bbox_bottom) = 0){
-		
-		if keyRun {
-			x = x + runSpd
-			image_index = image_index + runSpd
-		} else {
-			x = x + walkSpd
-			walking = true
-			image_index = image_index + walkSpd
-		}
-	}
-} else if keyLeft {
-	if (tilemap_get_at_pixel(collisionTilemapID, bbox_left - runSpd, bbox_bottom) = 0){
-		if keyRun {
-			x = x - runSpd
-			image_index = image_index - runSpd
-		} else {
-			x = x - walkSpd
-			walking = true
-			image_index = image_index - walkSpd
-		}
-	} else if falling {
-		//wall cling and slide
-		wallCling = true
+	hSpd = walkSpd
+}
+if keyLeft {
+	hSpd = walkSpd * -1
+}
+
+if ((tilemap_get_at_pixel(collisionTilemapID, bbox_right + hSpd, bbox_bottom)*tilemap_get_at_pixel(collisionTilemapID, bbox_left + hSpd, bbox_bottom)) = 0) {
+	x = x + hSpd
+	if !jumping{
+		image_index = image_index + hSpd
 	}
 }
+
 
 //Vertical Movement
 if keySpace{
 	if !jumped {
-		jumped = true
-		if (tilemap_get_at_pixel(collisionTilemapID, x, bbox_top - 1) = 0) {
-			y = y - jumpHeight
-		} 
+		jumping = true
+		image_index = 0
 	} else if (!doubleJumped){
 		y = y - doubleJumpHeight
 		doubleJumped = true
 	}
 }
-	
+
+if jumping {
+	jumped = true
+	sprite_index = sprSnakeJump
+	image_speed = jumpLagSpd
+	print(image_index)
+}
+
 //Gravity
 if (tilemap_get_at_pixel(collisionTilemapID, bbox_left, bbox_bottom + 1) = 0) && (tilemap_get_at_pixel(collisionTilemapID, bbox_right, bbox_bottom + 1) = 0){
 	//in air
-	falling = true
-	if !wallCling {
-	y = y + gravitySpd;
+	//falling
+	if vSpd <= 0 {
+		falling = true
+		if fallFrameCount <= 10 {
+			accelerationSpd = accelerationSpd + gravitySpd
+			vSpd = vSpd + accelerationSpd
+		} 
+		fallFrameCount = fallFrameCount + 1
+	} else {
+		y = y + vSpd
 	}
+	
 } else {
 	//Jump flag
 	falling = false
 	jumped = false
 	doubleJumped = false
-	
+	fallFrameCount = 0
+	accelerationSpd = 0
 }
 
 //Aerial Wall Movement
-if wallCling && keyDown {
-	y = y + 1
+if wallCling {
+	if keyDown {
+		y = y + 1
+	}
 }
 
 wallCling = false

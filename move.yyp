@@ -1,9 +1,11 @@
 {
   "resources": [
+    {"id":{"name":"sprSnakeJump","path":"sprites/sprSnakeJump/sprSnakeJump.yy",},"order":9,},
     {"id":{"name":"sprSnake","path":"sprites/sprSnake/sprSnake.yy",},"order":7,},
     {"id":{"name":"tleMonochromeTilemap","path":"tilesets/tleMonochromeTilemap/tleMonochromeTilemap.yy",},"order":0,},
     {"id":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},"order":0,},
     {"id":{"name":"print","path":"scripts/print/print.yy",},"order":0,},
+    {"id":{"name":"smoothStopStart","path":"scripts/smoothStopStart/smoothStopStart.yy",},"order":1,},
     {"id":{"name":"monochrome_tilemap_packed","path":"sprites/monochrome_tilemap_packed/monochrome_tilemap_packed.yy",},"order":4,},
     {"id":{"name":"objWall","path":"objects/objWall/objWall.yy",},"order":1,},
     {"id":{"name":"sprTail","path":"sprites/sprTail/sprTail.yy",},"order":8,},
@@ -11,6 +13,7 @@
     {"id":{"name":"tleCollision","path":"tilesets/tleCollision/tleCollision.yy",},"order":1,},
     {"id":{"name":"sprCollision","path":"sprites/sprCollision/sprCollision.yy",},"order":6,},
     {"id":{"name":"sprPlayer","path":"sprites/sprPlayer/sprPlayer.yy",},"order":5,},
+    {"id":{"name":"sprSnakeDash","path":"sprites/sprSnakeDash/sprSnakeDash.yy",},"order":10,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [

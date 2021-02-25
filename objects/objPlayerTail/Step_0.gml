@@ -22,3 +22,8 @@ if keyDown {
 		image_index = image_index - 1
 	}
 }
+if playerID.jumping {
+	image_alpha = 0
+} else {
+	image_alpha = 100
+}
