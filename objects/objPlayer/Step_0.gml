@@ -6,7 +6,6 @@ keyDown = keyboard_check(vk_down) || keyboard_check(ord("S"))
 keyUp = keyboard_check(vk_up) || keyboard_check(ord("W"))
 keyRun = keyboard_check(vk_shift)
 keySpace = keyboard_check_pressed(vk_space)
-walkSpd = 0.8
 hSpd = 0
 
 
@@ -65,7 +64,7 @@ if (tilemap_get_at_pixel(collisionTilemapID, bbox_left, bbox_bottom + 1) = 0) &&
 		falling = true
 		if fallFrameCount <= 10 {
 			accelerationSpd = accelerationSpd + gravitySpd
-			vSpd = vSpd + accelerationSpd
+			vSpd = vSpd + accelerationSpd + 0
 		} 
 		fallFrameCount = fallFrameCount + 1
 	} else {
