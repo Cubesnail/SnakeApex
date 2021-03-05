@@ -36,8 +36,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Horizontal Movement",
-    "path": "folders/Objects/Horizontal Movement.yy",
+    "name": "Objects",
+    "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "objSliderBarWalkSpd",

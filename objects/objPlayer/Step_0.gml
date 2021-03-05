@@ -8,9 +8,6 @@ keyRun = keyboard_check(vk_shift)
 keySpace = keyboard_check_pressed(vk_space)
 hSpd = 0
 
-
-terminalVSpd = 1
-glideSpd = 0.025
 runSpd = 1.2
 jumpSpd = 5
 jumpHeight = 20
@@ -19,10 +16,12 @@ jumpLagSpd = 2
 
 //Horizontal Movement
 
-if keyRun {
-	walkSpd = walkSpd * runSpd
+/*if keyRun {
+	walkSpd = runSpd
+} else {
+	walkSpd = walkSpdDefault
 }
-
+*/
 if keyRight {
 	hSpd = walkSpd
 }
@@ -53,23 +52,39 @@ if jumping {
 	jumped = true
 	sprite_index = sprSnakeJump
 	image_speed = jumpLagSpd
-	print(image_index)
 }
 
 //Gravity
 if (tilemap_get_at_pixel(collisionTilemapID, bbox_left, bbox_bottom + 1) = 0) && (tilemap_get_at_pixel(collisionTilemapID, bbox_right, bbox_bottom + 1) = 0){
 	//in air
 	//falling
+	if vSpd >= 0 {
+		falling = true;
+		if keyDown {
+			fallFrameCount = fallFrameCount + 1
+		}
+		if fallFrameCount < fallFramesToTerminal {
+			vSpd = fallSpeedArray[fallFrameCount] * fallSquaredSpd
+		}
+		fallFrameCount = fallFrameCount + 1
+	} else {
+		vSpd = vSpd + jumpFallSpd
+	}
+	
+	print(vSpd)
+	y = y + vSpd
+	
+	/*
 	if vSpd <= 0 {
 		falling = true
 		if fallFrameCount <= 10 {
 			accelerationSpd = accelerationSpd + gravitySpd
 			vSpd = vSpd + accelerationSpd + 0
 		} 
-		fallFrameCount = fallFrameCount + 1
 	} else {
 		y = y + vSpd
 	}
+	*/
 	
 } else {
 	//Jump flag

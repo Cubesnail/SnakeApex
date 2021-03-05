@@ -13,5 +13,6 @@ if jumping {
 		y = y - jumpHeight
 	}
 	jumping = false
-	vSpd = -5
+	jumped = true
+	vSpd = -jumpTakeoffSpeed
 }

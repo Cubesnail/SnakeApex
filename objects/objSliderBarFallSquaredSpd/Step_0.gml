@@ -5,4 +5,4 @@
 
 sliderPercentage = sliderID.x - leftLimit + 50
 
-playerID.walkSpd = playerVariableDefault * sliderPercentage/100
+playerID.fallSquaredSpd = playerVariableDefault * sliderPercentage/100
