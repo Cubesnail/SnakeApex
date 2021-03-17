@@ -3,6 +3,6 @@
 
 //sliderPosition = sliderID.sliderPosition
 
-sliderPercentage = sliderID.x - leftLimit + 50
+sliderPercent = sliderID.x - leftLimit + 50
 
-playerID.walkSpd = playerVariableDefault * sliderPercentage/100
+playerID.walkSpd = playerVariableDefault * sliderPercent/100

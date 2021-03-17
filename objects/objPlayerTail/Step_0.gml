@@ -16,7 +16,7 @@ if keyDown {
 	if (image_index < 8) {
 		image_index = image_index + 1
 	}
-	print(image_index)
+	//print(image_index)
 } else {
 	if (image_index >= 1){
 		image_index = image_index - 1

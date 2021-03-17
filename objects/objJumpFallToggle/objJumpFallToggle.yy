@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Jumping",
-    "path": "folders/Objects/Jumping.yy",
+    "name": "Vertical Movement",
+    "path": "folders/Objects/Vertical Movement.yy",
   },
   "resourceVersion": "1.0",
   "name": "objJumpFallToggle",

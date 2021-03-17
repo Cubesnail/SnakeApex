@@ -2,13 +2,13 @@
 // You can write your code in this editor
 
 playerID = instance_find(objPlayer, 0)
-fallFramesToTerminal = playerID.fallFramesToTerminal
+fallFramesToTerminal = 60//playerID.fallFramesToTerminal
 fallSquaredSpd = playerID.fallSquaredSpd
+fallArray = playerID.jumpFallArray
 var i
 //Initialize arrays
 for (i = 0; i < 100; ++i){
-	fallArray[i] = 0
 	jumpArray[i] = 0
 }
-smoothSquaredStart(fallFramesToTerminal, fallArray)
-smoothSquaredStop(100, jumpArray)
+//smoothSquaredStart(fallFramesToTerminal, fallArray)
+//smoothSquaredStop(100, jumpArray)
