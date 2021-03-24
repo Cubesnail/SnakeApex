@@ -24,8 +24,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Vertical Movement",
-    "path": "folders/Objects/Vertical Movement.yy",
+    "name": "Player Variable Displays",
+    "path": "folders/Objects/Player Variable Displays.yy",
   },
   "resourceVersion": "1.0",
   "name": "objvSpdDisplay",

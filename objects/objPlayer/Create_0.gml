@@ -2,6 +2,9 @@
 // You can write your code in this editor
 global.playerID = id //Setting player id for other objects to reference
 
+room_speed = 60 //Debugging
+
+
 collisionTilemapID = layer_tilemap_get_id("tmapCollision")
 tailID = instance_find(objPlayerTail, 0);		//Player tail
 image_speed = 0
@@ -10,26 +13,40 @@ jumpAnimationTime =	sprite_get_number(sprSnakeJump)
 vSpd = 0	
 hSpd = 0
 
-walkSpdDefault = 1				//Walking speed
-gravitySpd = 0					//Linear increase in velocity 
+walkSpdDefault = 0.8				//Walking speed
+runSpdDefault = 1.2
+//gravitySpd = 0					//Linear increase in velocity 
 fallFramesToTerminal = 60		//Amount of time (in frames) to get to terminal velocity
 jumpFallSpd = 0.1				//Decrease in vSpd before apex of the jump
-runSpd = walkSpdDefault * 1.2	//Sprinting speed
+runSpd = walkSpdDefault * 1.5	//Sprinting speed
 jumpSpd = 5						//Initial Jump speed
 jumpHeight = 20					//Maximum jump height
 doubleJumpHeight = 30			//Double jump height
-jumpLagSpd = 2					//Walking speed
-walkSpd = walkSpdDefault			
-jumpTakeoffSpeed = 5			
+jumpLagSpd = 7					
+walkSpd = walkSpdDefault		//Walking speed
+runSpd = runSpdDefault			
+jumpTakeoffSpeed = 2			
 fallFrameCount = 0
 fallSquaredSpd = 1.2			//Vertical stretch of the vspeed after the apex of the jump
-terminalVelocity = 2			
-framesToTerminalVelocity =120
+terminalVelocity = 5			//Terminal Velocity
+framesToTerminalVelocity = 60
 fallWeightLinear = 1
 fallWeightQuadratic = 1
-fallWeightCubic = 1
-fallWeightQuartic = 1
-fallWeightQuintic = 1 
+fallWeightCubic = 0
+fallWeightQuartic = 0
+fallWeightQuintic = 0 
+dashTimer = 20					//Amount of time (frames) a person has to doubletap
+dashLeftCount = 0				//Counter for input
+dashRightCount = 0				//Counter for input
+dashRight = false
+dashLeft = false
+inAir = false
+sliding = false
+grounded = false
+running = false
+slideBoostThreshold = 1
+slideBoostAmount = 2
+crawlSpd = 0.4
 
 function jumpFallArray_get(){
 	var totalWeights = fallWeightLinear + fallWeightQuadratic + fallWeightCubic + fallWeightQuartic + fallWeightQuintic
@@ -56,4 +73,6 @@ print("Unit tests")
 unit_tests()
 framesToTerminalVelocityDefault = framesToTerminalVelocity
 terminalVelocityDefault = terminalVelocity
+
+
 

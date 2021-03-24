@@ -4,7 +4,10 @@
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "objhSpdGrapher",
+    "path": "objects/objhSpdGrapher/objhSpdGrapher.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -18,17 +21,16 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"objvSpdDisplay","path":"objects/objvSpdDisplay/objvSpdDisplay.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"objvSpdDisplay","path":"objects/objvSpdDisplay/objvSpdDisplay.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"objhSpdPlotter","path":"objects/objhSpdPlotter/objhSpdPlotter.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Vertical Movement",
-    "path": "folders/Objects/Vertical Movement.yy",
+    "name": "Horizontal Movement",
+    "path": "folders/Objects/Horizontal Movement.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objvSpdDisplay",
+  "name": "objhSpdPlotter",
   "tags": [],
   "resourceType": "GMObject",
 }

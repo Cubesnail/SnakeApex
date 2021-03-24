@@ -24,8 +24,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Horizontal Movement",
-    "path": "folders/Objects/Horizontal Movement.yy",
+    "name": "Player Variable Displays",
+    "path": "folders/Objects/Player Variable Displays.yy",
   },
   "resourceVersion": "1.0",
   "name": "objhSpdDisplay",
