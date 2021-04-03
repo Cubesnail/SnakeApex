@@ -26,3 +26,13 @@ draw_text(x, y + i, bol_display("Sliding", global.playerID.sliding))
 i += 16
 draw_text(x, y + i, bol_display("Running", global.playerID.running))
 i += 16
+draw_text(x, y + i, bol_display("doubleJumped", global.playerID.doubleJumped))
+i += 16
+draw_text(x, y + i, bol_display("jumping", global.playerID.jumped))
+i += 16
+draw_text(x, y + i, bol_display("wallJumped", global.playerID.wallJumped))
+i += 16
+draw_text(x, y + i, var_display("wallJumpCount", global.playerID.wallJumpCount))
+i += 16
+draw_text(x, y + i, var_display("wallJumphSpd", global.playerID.wallJumpEntryhSpd))
+i += 16
